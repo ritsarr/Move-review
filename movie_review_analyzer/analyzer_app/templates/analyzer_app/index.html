@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анализатор отзывов на фильмы</title>
+    <link rel="stylesheet" type="text/css" href="analyzer_app/styles.css">
+</head>
+<body>
+    <h1>Анализатор отзывов на фильмы</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Анализировать</button>
+    </form>
+
+    {% if sentiment and rating %}
+        <h2>Результаты анализа:</h2>
+        <p><strong>Тональность:</strong> {{ sentiment }}</p>
+        <p><strong>Рейтинг:</strong> {{ rating }}</p>
+    {% endif %}
+</body>
+</html>
+
