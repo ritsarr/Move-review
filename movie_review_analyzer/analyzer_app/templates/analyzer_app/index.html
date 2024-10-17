@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Анализатор отзывов на фильмы</title>
-    <link rel="stylesheet" type="text/css" href="analyzer_app/styles.css">
 </head>
 <body>
     <h1>Анализатор отзывов на фильмы</h1>
@@ -13,11 +12,14 @@
         <button type="submit">Анализировать</button>
     </form>
 
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
     {% if sentiment and rating %}
         <h2>Результаты анализа:</h2>
         <p><strong>Тональность:</strong> {{ sentiment }}</p>
-        <p><strong>Рейтинг:</strong> {{ rating }}</p>
+        <p><strong>Предполагаемый рейтинг:</strong> {{ rating }} из 10</p>
     {% endif %}
 </body>
 </html>
-
